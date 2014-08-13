@@ -7,7 +7,7 @@
  *               Craig Roberts <craig0990@googlemail.com>
  * Created On: 27/02/2013
  * Version: 2.3.2
- * Issue, Feature & Bug Support: https://github.com/warby-/jquery-pagewalkthrough/issues
+ * Features/Bug Support: https://github.com/warby-/jquery-pagewalkthrough/issues
  ***/
 
 ;(function($, window, document, undefined) {
@@ -47,7 +47,7 @@
 
     //init method
     init: function(options) {
-      var options = $.extend(true, {}, $.fn.pagewalkthrough.defaults, options);
+      options = $.extend(true, {}, $.fn.pagewalkthrough.defaults, options);
       var that = this;
 
       if (!options.name) {
@@ -74,14 +74,14 @@
         }
 
         //get first onload = true
-        if (_counter == 1 && _onLoad) {
+        if (_counter === 1 && _onLoad) {
           _activeId = options.name;
           _activeWalkthrough = _globalWalkthrough[_activeId];
           _onLoad = false;
         }
 
         // set the activeWalkthrough if onLoad is false for all walkthroughs
-        if ((i + 1 === that.length && _counter == 0)) {
+        if ((i + 1 === that.length && _counter === 0)) {
           _activeId = options.name;
           _activeWalkthrough = _globalWalkthrough[_elements[0]];
           _hasDefault = false;
@@ -91,9 +91,9 @@
 
     renderOverlay: function() {
 
-      //if each walkthrough has onLoad = true, throw warning message to the console
+      //if each walkthrough has onLoadtrue, throw warning message to the console
       if (_counter > 1) {
-        debug('Warning: Only first walkthrough will be shown onLoad as default');
+        debug('Warning: Only 1st walkthrough will be shown onLoad as default');
       }
 
       //get cookie load
@@ -111,7 +111,7 @@
             if (!onAfterShow()) return;
           }
         }, 100);
-      } else { //check when user used to close the walkthrough to call the onCookieLoad callback
+      } else {
         onCookieLoad(_globalWalkthrough);
       }
     },
@@ -128,7 +128,7 @@
     close: function() {
       var options = _activeWalkthrough;
 
-      if (typeof options.onClose === "function") {
+      if (typeof options.onClose === 'function') {
         options.onClose.call(this);
       }
 
@@ -677,7 +677,7 @@
       '-o-transform': 'none', //opera
       'filter': 'none', //IE7
       '-ms-transform': 'none' //IE8+
-    }
+    };
 
     return rotationStyle;
   }
@@ -702,7 +702,7 @@
       '-o-transform': 'rotate(' + parseInt(angle) + 'deg)', //opera
       'filter': 'progid:DXImageTransform.Microsoft.Matrix(M11 = ' + M11 + ',M12 = -' + M12 + ',M21 = ' + M21 + ',M22 = ' + M22 + ',sizingMethod = "auto expand");', //IE7
       '-ms-transform': 'progid:DXImageTransform.Microsoft.Matrix(M11 = ' + M11 + ',M12 = -' + M12 + ',M21 = ' + M21 + ',M22 = ' + M22 + ',SizingMethod = "auto expand");' //IE8+
-    }
+    };
 
     return rotationStyle;
 
