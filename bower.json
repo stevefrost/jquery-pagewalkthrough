@@ -1,0 +1,8 @@
+{
+    "name": "jquery-pagewalkthrough",
+    "version": "2.6.8",
+    "dependencies": {
+        "jquery": ">=1.11"
+    },
+    "private": true
+}
