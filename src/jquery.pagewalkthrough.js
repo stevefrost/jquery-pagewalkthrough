@@ -855,16 +855,24 @@
   /* Close and finish tour buttons clicks */
   $(document).on('click', '#jpwClose, #jpwFinish', methods.close);
 
+  function preventDoubleClick(ev, action) {
+    var $target = $(ev.target);
+    if (typeof $target.data('clicked') === 'undefined') {
+        $target.data('clicked', true);
+        $.pagewalkthrough(action);
+    }
+  }
+
   /* Next button clicks
    */
-  $(document).on('click', '#jpwNext', function() {
-    $.pagewalkthrough('next');
+  $(document).on('click', '#jpwNext', function (ev) {
+    preventDoubleClick(ev, 'next');
   });
 
   /* Previous button clicks
    */
   $(document).on('click', '#jpwPrevious', function() {
-    $.pagewalkthrough('prev');
+    preventDoubleClick(ev, 'next');
   });
 
   $(document).on(
