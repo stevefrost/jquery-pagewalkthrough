@@ -872,7 +872,7 @@
   /* Previous button clicks
    */
   $(document).on('click', '#jpwPrevious', function(ev) {
-    preventDoubleClick(ev, 'previous');
+    preventDoubleClick(ev, 'prev');
   });
 
   $(document).on(
