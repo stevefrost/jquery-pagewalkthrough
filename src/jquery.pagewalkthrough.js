@@ -871,7 +871,7 @@
 
   /* Previous button clicks
    */
-  $(document).on('click', '#jpwPrevious', function() {
+  $(document).on('click', '#jpwPrevious', function(ev) {
     preventDoubleClick(ev, 'previous');
   });
 
